@@ -1,0 +1,97 @@
+body {
+  background-color: #F7F7F7;
+}
+.page-header.navbar .menu-toggler.sidebar-toggler{
+	display: none;
+}
+.page-header.navbar .page-top{
+	height: 50px;
+}
+.page-header.navbar .page-logo .logo-default {
+  height: 40px;
+}
+.page-header.navbar .page-logo{
+	width: 130px;
+  height: 50px;
+}
+.page-header.navbar .page-actions {
+  margin: 8px 0 8px 15px;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown{
+	height: 50px;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+  padding: 13px 12px 12px 12px;
+}
+.page-header-fixed .page-container {
+  margin-top: 50px;
+}
+#order_fix_form input[name=order_detail_id]+div{
+	display: none;
+}
+#order_detail_list input[name=total_price], #order_detail_list input[name=paid], #order_detail_list input[name=unpaid], #return_detail_list input[name=total_price], #return_detail_list input[name=paid], #return_detail_list input[name=unpaid]{
+	width: 100% !important;
+}
+.mini_product_list_no_paginate table tr > th:first-child,
+.mini_product_list_no_paginate table tr > td:first-child{
+	display: none;
+}
+.sale table span.qty_btn {
+  float: right;
+  position: absolute;
+  margin-top: -34px;
+}
+.sale table input.form-control.quantity {
+  padding-left: 20px;
+}
+.sale table .qty_btn i.fa.fa-minus, .sale table .qty_btn i.fa.fa-plus {
+  display: block;
+  cursor: pointer;
+  border: 1px solid rgb(229, 229, 229);
+  font-size: 10px;
+  padding: 0 3px;
+  color: rgb(149, 165, 166);
+}
+.addition_info{
+	display: none;
+}
+#mini_product_list tbody > tr:first-child{
+  background-color: #45E3F2 !important;
+  font-weight: bold;
+}
+.dataTables_processing{
+  display: none;
+}
+.form-control .select2-choice {
+  height: 31px;
+}
+.form-control.unit_id {
+  padding: 0;
+  height: 33px;
+}
+.page-header .navbar .navbar-nav > li > a, .page-header .navbar .navbar-nav > li > button {
+    line-height: 20px !important;
+}
+@media (min-width: 1200px){
+  .page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-toggle > .username{
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+.page-header .navbar .navbar-nav > li > a, .page-header .navbar .navbar-nav > li > button {
+    line-height: 30px !important;
+    margin-bottom: 10px;
+}
+.page-header .navbar .page-logo img {
+    margin-bottom: 10px;
+}
+.page-actions button {
+  margin-bottom: 20px;
+}
+}
+@media (max-width: 1100px) and (min-width: 768px){
+	.sum-price, .total-price {
+	  width: 100%;
+	}	
+}
