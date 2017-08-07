@@ -715,7 +715,7 @@ class Userm extends My_Model {
             'user_group_id' => $this->input->post('user_group_id'),
 
             
-            'employee_name' => $this->input->post('employee_name'),
+//            'employee_name' => $this->input->post('employee_name'),
 
             'employee_id' => $this->input->post('employee_id'),
 
