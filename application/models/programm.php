@@ -525,6 +525,206 @@ class Programm extends My_Model
         }
     }
 
+    function load_program_fee()
+
+    {
+
+        $name = $this->input->post('name');
+
+        $program_id = $this->input->post('program_id');
+
+
+
+        $program = $this->get_item_by_id($program_id);
+
+        $program_product = $this->db->where('program_id', $program_id)
+
+            ->select('program_product_id, p.*')
+
+            ->from($this->prefix . 'program_product pp')
+
+            ->join($this->prefix . 'product p', 'pp.product_id = p.product_id')
+
+            ->order_by('program_product_id DESC')
+
+            ->get();
+
+        $object_id = $this->input->post('object_id');
+
+        $student_data = $this->db->where('student_id', $object_id)->where('program_id', $program_id)
+
+            ->select('*')
+
+            ->from($this->prefix . 'student_class')
+
+            ->get();
+
+        if (count($student_data->result()) <= 0) {
+
+            $transfer_money = $this->actionm->get_transfer_money(STUDENT_STATUS_9, $object_id, $program_id);
+
+            $count = $this->input->post('count', 1);
+
+            ?>
+
+            <tr class="b_<?php echo $name; ?>">
+
+                <td colspan="4">
+
+                    <strong>Chương trình <?php echo $program['name']; ?></strong>
+
+                </td>
+
+            </tr>
+
+            <tr class="b_<?php echo $name; ?>" id="p-<?php echo $program_id; ?>">
+
+                <td>
+
+                    Học phí
+
+                </td>
+
+                <td class="text-right">
+
+                    <?php echo number_format($program['price'], 0); ?>
+
+                </td>
+
+                <td>
+
+                    <input name="invoice[<?php echo $count; ?>][quantity]" class="form-control quantity valid number"
+
+                           type="text" value="1" readonly>
+
+                    <input name="invoice[<?php echo $count; ?>][object_id]" type="hidden"
+
+                           value="<?php echo $program_id; ?>">
+
+                    <input name="invoice[<?php echo $count; ?>][name]" type="hidden"
+
+                           value="<?php echo $program['name']; ?>">
+
+                    <input name="invoice[<?php echo $count; ?>][unit_price]" type="hidden" class="unit_price"
+
+                           value="<?php echo $program['price']; ?>">
+
+                    <input name="invoice[<?php echo $count; ?>][total]" type="hidden" class="price"
+
+                           value="<?php echo $program['price']; ?>">
+
+                    <input name="invoice[<?php echo $count; ?>][type]" type="hidden" value="1">
+
+                    <?php if (!empty($transfer_money['total_money'])) : ?>
+
+                        <input name="transfer_money[<?php echo $program_id; ?>]" type="hidden"
+
+                               value="<?php echo $transfer_money['total_money']; ?>" class="form-control">
+
+                    <?php endif; ?>
+
+                </td>
+
+                <td>
+
+                    <input name="invoice[<?php echo $count; ?>][discount]" class="form-control discount number"
+
+                           maxlength="3" type="text" value="0">
+
+                </td>
+
+                <td class="text-right text_price"></td>
+
+            </tr>
+
+            <?php
+
+            foreach ($program_product->result() as $row) {
+
+                $count++;
+
+                ?>
+
+                <tr class="b_<?php echo $name; ?>" id="pp-<?php echo $row->product_id; ?>">
+
+                    <td>
+
+                        <?php echo $row->name; ?>
+
+                    </td>
+
+                    <td class="text-right">
+
+                        <?php echo number_format($row->price_export, 0); ?>
+
+                    </td>
+
+                    <td>
+
+                        <input name="invoice[<?php echo $count; ?>][quantity]"
+
+                               class="form-control quantity valid number" type="text" value="1">
+
+                        <input name="invoice[<?php echo $count; ?>][object_id]" type="hidden"
+
+                               value="<?php echo $row->product_id; ?>">
+
+                        <input name="invoice[<?php echo $count; ?>][name]" type="hidden"
+
+                               value="<?php echo $row->name; ?>">
+
+                        <input name="invoice[<?php echo $count; ?>][unit_price]" type="hidden"
+
+                               class="unit_price" value="<?php echo $row->price_export; ?>">
+
+                        <input name="invoice[<?php echo $count; ?>][total]" type="hidden" class="price"
+
+                               value="<?php echo $row->price_export; ?>">
+
+                        <input name="invoice[<?php echo $count; ?>][type]" type="hidden" type="text" value="2">
+
+                    </td>
+
+                    <td>
+
+                        <input name="invoice[<?php echo $count; ?>][discount]" class="form-control discount number"
+
+                               maxlength="3" type="text" value="0">
+
+                    </td>
+
+                    <td class="text-right text_price"></td>
+
+                </tr>
+
+            <?php } ?>
+
+            <tr class="b_<?php echo $name; ?> b_sub_total">
+
+                <td colspan="4" class="text-right">
+
+                    <strong>Tổng tiền </strong>
+
+                </td>
+
+                <td class="text-right">
+
+                    <strong class="sub_total">0</strong>
+
+                </td>
+
+            </tr>
+
+            <?php
+
+        } else {
+
+            echo "2";
+
+        }
+
+    }
+
     function get_program_product_list()
     {
         if (!isset($_GET['f_program_id']) || empty($_GET['f_program_id'])) {

@@ -394,8 +394,17 @@ class Studentconsultm extends  My_Model
             </div>
 
 
+            <div class="modal-footer">
 
-            <div class="clearfix"></div>
+                <button type="button" class="btn btn-default pull-right" style="margin-left: 5px" data-dismiss="modal">Hủy</button>
+
+                <a data-dismiss="modal" style="display:none;">Processing...</a>
+
+                <a href="#student_history" data-toggle="modal" type="button" class="btn btn-info pull-right" style="margin-left: 5px" onclick="load_student_history('<?php echo $id ?>');">Xem lịch sử học</>
+
+                <a href="#student_detail" data-toggle="modal" type="button" class="btn green-meadow pull-right" onclick="load_student_edit('<?php echo $id ?>');">Xem thông tin chi tiết</>
+
+            </div>
 
 
             <?php

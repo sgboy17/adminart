@@ -258,7 +258,7 @@ function load_branch_add(){
         },
         success:function(resp){
             jQuery("#branch_detail #branch_form").html(resp);
-            validate_user_form();
+            validate_branch_form();
         }
     });  
 }

@@ -456,7 +456,6 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                 <h3 class="modal-title"><i class="fa fa-edit"></i> Danh sách học viên các trung tâm</h3>
-
             </div>
 
             <form id="all_student_branch_form">
@@ -471,6 +470,32 @@
 
 </div><!-- /.modal -->
 
+
+
+<div id="note_detail" class="modal fade">
+
+    <div class="modal-dialog" style="width: 50%;">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                <h3 class="modal-title"><i class="fa fa-edit"></i> NOTE</h3>
+            </div>
+
+            <form id="student_note_form">
+
+
+
+            </form>
+
+        </div><!-- /.modal-content -->
+
+    </div><!-- /.modal-dialog -->
+
+</div><!-- /.modal -->
 
 
 

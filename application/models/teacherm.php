@@ -146,7 +146,7 @@ class Teacherm extends My_Model
 
             'sex' => $this->input->post('sex'),
 
-            'birthday' => $this->input->post('birthday'),
+            'birthday' => format_save_date($this->input->post('birthday')),
 
             'school' => $this->input->post('school'),
 
@@ -182,7 +182,7 @@ class Teacherm extends My_Model
 
                 'sex' => $this->input->post('sex'),
 
-                'birthday' => $this->input->post('birthday'),
+                'birthday' => format_save_date($this->input->post('birthday')),
 
                 'school' => $this->input->post('school'),
 

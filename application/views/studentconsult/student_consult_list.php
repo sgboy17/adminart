@@ -132,16 +132,63 @@
 
                 <h3 class="modal-title pull-left"><i class="fa fa-eye"></i> Xem báo cáo </h3>
 
-                <button type="button" class="btn btn-default pull-right" style="margin-left: 5px" data-dismiss="modal">Close</button>
-
-                <button type="button" class="btn btn-info pull-right">Xem lịch sử học</button>
-
-                <button type="button" class="btn green-meadow pull-right">Xem thông tin chi tiết</button>
-
             </div>
 
             <form id="student_consult_form">
 
+
+
+
+            </form>
+
+        </div><!-- /.modal-content -->
+
+    </div><!-- /.modal-dialog -->
+
+</div><!-- /.modal -->
+
+
+<div id="student_detail" class="modal fade">
+
+    <div class="modal-dialog" style="width: auto;">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                <h3 class="modal-title"><i class="fa fa-edit"></i> Học viên</h3>
+
+            </div>
+
+            <form id="student_form">
+
+
+
+            </form>
+
+        </div><!-- /.modal-content -->
+
+    </div><!-- /.modal-dialog -->
+
+</div><!-- /.modal -->
+
+<div id="student_history" class="modal fade">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                <h3 class="modal-title"><i class="fa fa-edit"></i> Lịch sử học</h3>
+
+            </div>
+
+            <form id="student_history_form">
 
 
 

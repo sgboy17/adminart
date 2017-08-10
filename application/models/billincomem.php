@@ -94,7 +94,8 @@ class Billincomem extends My_Model {
                 }
             }
             $this->db->where('branch_id', $this->session->userdata('branch'));
-        }else{ // Advance
+        }
+        else{ // Advance
             if (isset($_GET['f_from_date']) && !empty($_GET['f_from_date'])) {
                 $this->db->where('created_date >= "'.format_save_date($_GET['f_from_date']).' 00:00:00"');
             }
@@ -105,20 +106,20 @@ class Billincomem extends My_Model {
             if (isset($_GET['f_branch_id']) && !empty($_GET['f_branch_id'])) {
                 $this->db->where('branch_id', $_GET['f_branch_id']);
             }
-                    
+
             if (isset($_GET['f_employee_id']) && !empty($_GET['f_employee_id'])) {
                 $this->db->where('employee_id', $_GET['f_employee_id']);
             }
-                    
+
             if (isset($_GET['f_type']) && !empty($_GET['f_type'])) {
                 $this->db->where('type', $_GET['f_type']);
             }
-                    
+
             if (isset($_GET['f_customer_id']) && !empty($_GET['f_customer_id'])) {
                 $this->db->where('customer_id', $_GET['f_customer_id']);
             }
         }
-        
+
                 
         ////////////////////////////////////
         $result_item = $this->db->where('deleted', 0)->order_by('created_date DESC, bill_income_id DESC')->get($this->prefix.'bill_income');

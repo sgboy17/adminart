@@ -389,5 +389,21 @@ class Eventm extends My_Model
         }
     }
 
+    function get_active_event() {
+
+        $now = date('Y-m-d');
+
+        return $this->db->order_by('name ASC')
+
+            ->where('date_from <=', $now)
+
+            ->where('date_end >=', $now)
+
+            ->where('deleted', 0)
+
+            ->get($this->prefix.'event');
+
+    }
+
 
 }

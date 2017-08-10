@@ -284,9 +284,9 @@ class Branchm extends My_Model {
 
             else $status = '<span class="text-danger">Inactive</span>';
 
-            if(!empty($row['address'])) $address = $row['address'].', '.$this->districtm->get_name($row['district_id']).', '.$this->citym->get_name($row['city_id']);
-
-            else $address = $this->districtm->get_name($row['district_id']).', '.$this->citym->get_name($row['city_id']);
+//            if(!empty($row['address'])) $address = $row['address'].', '.$this->districtm->get_name($row['district_id']).', '.$this->citym->get_name($row['city_id']);
+//
+//            else $address = $this->districtm->get_name($row['district_id']).', '.$this->citym->get_name($row['city_id']);
 
             $cate = array(
 
@@ -300,7 +300,8 @@ class Branchm extends My_Model {
 
             
 
-                $address,
+//                $address,
+                $row['address'],
 
 
 
@@ -551,7 +552,15 @@ class Branchm extends My_Model {
                     <div class="m-t-sm">Tên người liên hệ:</div>
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="employee_name" value="" placeholder="Tên người liên hệ:" class="form-control"></input>
+                    <select class="form-control" name="employee_id">
+                        <option value="">- nhân viên -</option>
+                        <?php
+                        $employee_list = $this->employeem->get_items();
+                        foreach($employee_list->result() as $row){
+                            ?>
+                            <option value="<?php echo $row->employee_id ?>" ><?php echo $row->name ?></option>
+                        <?php } ?>
+                    </select>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -560,7 +569,7 @@ class Branchm extends My_Model {
                     <div class="m-t-sm">ĐT người liên hệ:</div>
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="employee_phone" value="" placeholder="ĐT người liên hệ:" class="form-control"></input>
+                    <input type="text" name="employee_phone"  placeholder="ĐT người liên hệ:" class="form-control" disabled></input>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -605,8 +614,10 @@ class Branchm extends My_Model {
             'fee_change_branch' => $this->input->post('fee_change_branch'),
             'fee_change_hour' => $this->input->post('fee_change_hour'),
             'phone' => $this->input->post('phone'),
-            'employee_name' => $this->input->post('employee_name'),
-            'employee_phone' => $this->input->post('employee_phone'),
+            'address' => $this->input->post('address'),
+            'employee_id' => $this->input->post('employee_id'),
+//            'employee_name' => $this->input->post('employee_name'),
+//            'employee_phone' => $this->input->post('employee_phone'),
             'status' => $this->input->post('status'),
             );
 
@@ -678,7 +689,7 @@ class Branchm extends My_Model {
                         <div class="m-t-sm">Điện thoại:</div>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" name="phone" value="<?php echo $result->phone ?>" placeholder="Điện thoại:" class="form-control"></input>
+                        <input type="text" name="phone" value="<?php echo $result->phone ?>" placeholder="Điện thoại:" class="form-control" ></input>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -687,7 +698,15 @@ class Branchm extends My_Model {
                         <div class="m-t-sm">Tên người liên hệ:</div>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" name="employee_name" value="<?php echo $employee_name ?>" placeholder="Tên người liên hệ:" class="form-control"></input>
+                        <select class="form-control" name="employee_id">
+                            <option value="">- nhân viên -</option>
+                            <?php
+                            $employee_list = $this->employeem->get_items();
+                            foreach($employee_list->result() as $row){
+                                ?>
+                                <option value="<?php echo $row->employee_id ?>" <?php if($result->employee_id==$row->employee_id) echo 'selected=""'; ?>><?php echo $row->name ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -696,7 +715,7 @@ class Branchm extends My_Model {
                         <div class="m-t-sm">ĐT người liên hệ:</div>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" name="employee_phone" value="<?php echo $employee_phone ?>" placeholder="ĐT người liên hệ:" class="form-control"></input>
+                        <input type="text" name="employee_phone" value="<?php echo $employee_phone ?>" placeholder="ĐT người liên hệ:" class="form-control" disabled></input>
                     </div>
                 </div>
                 <div class="clearfix"></div>

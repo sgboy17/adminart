@@ -44,7 +44,11 @@ class Program extends My_Controller
     {
         $this->programm->get_program_product_list();
     }
+    function load_program_fee(){
 
+        $this->programm->load_program_fee();
+
+    }
     /* Page */
     function program_list()
     {

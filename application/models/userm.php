@@ -657,7 +657,7 @@ class Userm extends My_Model {
 
             'user_group_id' => $this->input->post('user_group_id'),
 
-            'employee_name' => $this->input->post('employee_name'),
+//            'employee_name' => $this->input->post('employee_name'),
             
 
             'employee_id' => $this->input->post('employee_id'),
@@ -808,15 +808,15 @@ class Userm extends My_Model {
                 </div>
             </div>
             <div class="clearfix"></div>
-            <div class="form-group m-t-sm">
-                <div class="col-md-4">
-                    <div class="m-t-sm">Tên nhân viên:</div>
-                </div>
-                <div class="col-md-8">
-                    <input type="text" name="employee_name" value="<?php echo $employee_name ?>" placeholder="Tên nhân viên" class="form-control"></input>
-                </div>
-            </div>
-            <!-- <div class="clearfix"></div>
+<!--            <div class="form-group m-t-sm">-->
+<!--                <div class="col-md-4">-->
+<!--                    <div class="m-t-sm">Tên nhân viên:</div>-->
+<!--                </div>-->
+<!--                <div class="col-md-8">-->
+<!--                    <input type="text" name="employee_name" value="--><?php //echo $employee_name ?><!--" placeholder="Tên nhân viên" class="form-control"></input>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="clearfix"></div>-->
             <div class="form-group m-t-sm">
                 <div class="col-md-4">
                 <div class="m-t-sm">Nhân viên:</div>
@@ -835,7 +835,7 @@ class Userm extends My_Model {
                         <?php } ?>
                     </select>
                 </div>
-            </div> -->
+            </div>
             <div class="clearfix"></div>
             <div class="form-group m-t-sm">
                 <div class="col-md-4">
@@ -933,16 +933,16 @@ class Userm extends My_Model {
                 </select>
             </div>
         </div>
+<!--        <div class="clearfix"></div>-->
+<!--        <div class="form-group m-t-sm">-->
+<!--            <div class="col-md-4">-->
+<!--                <div class="m-t-sm">Tên nhân viên:</div>-->
+<!--            </div>-->
+<!--            <div class="col-md-8">-->
+<!--                <input type="text" name="employee_name" value="" placeholder="Tên nhân viên" class="form-control"></input>-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="clearfix"></div>
-        <div class="form-group m-t-sm">
-            <div class="col-md-4">
-                <div class="m-t-sm">Tên nhân viên:</div>
-            </div>
-            <div class="col-md-8">
-                <input type="text" name="employee_name" value="" placeholder="Tên nhân viên" class="form-control"></input>
-            </div>
-        </div>
-        <!-- <div class="clearfix"></div>
         <div class="form-group m-t-sm">
             <div class="col-md-4">
             <div class="m-t-sm">Nhân viên:</div>
@@ -950,15 +950,15 @@ class Userm extends My_Model {
             <div class="col-md-8">
                 <select class="form-control" name="employee_id">
                     <option value="">- nhân viên -</option>
-                    <?php 
+                    <?php
                      $employee_list = $this->employeem->get_items();
-                    foreach($employee_list->result() as $row){ 
+                    foreach($employee_list->result() as $row){
                     ?>
                     <option value="<?php echo $row->employee_id ?>"><?php echo $row->name ?></option>
                     <?php } ?>
                 </select>
             </div>
-        </div> -->
+        </div>
         <div class="clearfix"></div>
         <div class="form-group m-t-sm">
             <div class="col-md-4">
