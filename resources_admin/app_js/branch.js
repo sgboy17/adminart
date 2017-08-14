@@ -161,12 +161,15 @@ function validate_branch_form(){
                 required: true,
             },
             special_hour: {
+                required: true,
                 number: true,
             },
             fee_change_branch: {
+                required: true,
                 number: true,
             },
             fee_change_hour: {
+                required: true,
                 number: true,
             },
             country_id: {
@@ -181,6 +184,9 @@ function validate_branch_form(){
             status: {
                 required: true,
             },
+            phone: {
+                number: true
+            }
         },
         messages: {
             name: "Vui lòng điền tên chi nhánh!",

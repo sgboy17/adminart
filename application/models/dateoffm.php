@@ -25,7 +25,8 @@ class Dateoffm extends My_Model
     {
 
         if (isset($_GET['f_search']) && !empty($_GET['f_search'])) {
-            $this->db->where('(`date` LIKE "%' . $_GET['f_search'] . '%")');
+            $dateSearch = format_all_case_to_save_date($_GET['f_search']);
+            $this->db->where('(`date` LIKE "%' . $dateSearch . '%")');
         }
 
         if (isset($_GET['f_branch_id']) && !empty($_GET['f_branch_id'])) {

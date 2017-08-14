@@ -719,7 +719,7 @@ class Programm extends My_Model
 
         } else {
 
-            echo "2";
+//            echo "2";
 
         }
 

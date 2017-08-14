@@ -454,13 +454,14 @@ class Branchm extends My_Model {
 
             'status' => $this->input->post('status'),
 
-            'deleted' => 0,
 
-            'special_hour' => 0,
+            'special_hour' => $this->input->post('special_hour'),
 
-            'fee_change_hour' => 0,
 
-            'fee_change_branch' => 0
+            'fee_change_branch' => $this->input->post('fee_change_branch'),
+
+
+            'fee_change_hour' => $this->input->post('fee_change_hour')
             
 
             );

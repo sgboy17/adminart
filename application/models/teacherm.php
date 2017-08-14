@@ -476,7 +476,7 @@ class Teacherm extends My_Model
                         <div class="m-t-sm">Ngày sinh:</div>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" name="birthday" value="<?php echo ($result->birthday) ?>"
+                        <input type="text" name="birthday" value="<?php echo (format_get_date($result->birthday)) ?>"
                                placeholder="Ngày sinh" class="form-control datepicker"></input>
                     </div>
                 </div>

@@ -761,6 +761,12 @@ function validate_student_action_form() {
 
             },
 
+            program_id: {
+
+                required: true
+
+            }
+
 
 
         },
@@ -775,7 +781,7 @@ function validate_student_action_form() {
 
             date_end: "Vui lòng chọn ngày!",
 
-
+            program_id: "Vui lòng chọn chương trình học!"
 
         }
 
@@ -929,11 +935,11 @@ function save_student_action(element, is_print) {
 
                 }
 
+                validate_student_action_form();
+
                 if ($('.paginate_active').length) $('.paginate_active').trigger('click');
 
                 else document.location.href = document.location.href;
-
-
 
 
 

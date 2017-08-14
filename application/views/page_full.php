@@ -114,7 +114,7 @@
                         <!-- BEGIN LOGO -->
                         <div class="page-logo">
                             <a href="<?php echo base_url() ?>">
-                                <img src="<?php echo base_url() ?>resources_admin/images/logo.png" alt="logo" class="logo-default" style="width: 156px;"/>
+                                <img src="<?php echo base_url() ?>resources_admin/images/logo.png" alt="logo" class="logo-default" style="width: 216px; margin-top:10px"/>
                             </a>
                         </div>
                         <!-- END LOGO -->
